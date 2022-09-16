@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
+    <div>
+      <form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+        <input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
+      </form>
+    </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=540></canvas>
       <div id="unity-loading-bar">
@@ -31,6 +36,10 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
+      function FixInputOnSubmit() {
+			document.getElementById("fixInput").blur();
+			event.preventDefault();
+		  }
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.
