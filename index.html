@@ -80,10 +80,10 @@
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
+
       } else {
         canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.height = "540px";
       }
       loadingBar.style.display = "block";
 
@@ -103,9 +103,6 @@
       };
       document.body.appendChild(script);
     </script>
-    
-    <div style="height:20px; width: %UNITY_WIDTH%px; background: green;" onclick="unityInstance.SetFullscreen(1)"><b>Click here to make it full screen.</b></div>
-    <div id="unityContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px; margin: auto"></div>
   
   </body>
 </html>
